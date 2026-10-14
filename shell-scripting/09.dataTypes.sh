@@ -4,3 +4,7 @@ var2=20
 var3=Adi
 echo "$var1+$var2"
 echo "Sum is $(($var1+$var2+$var3))"
+
+declare -i COUNT=10
+COUNT=COUNT+10
+echo "Count is : $COUNT"
