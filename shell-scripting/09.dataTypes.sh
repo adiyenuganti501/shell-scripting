@@ -8,3 +8,6 @@ echo "Sum is $(($var1+$var2+$var3))"
 declare -i COUNT=10
 COUNT=COUNT+1
 echo "Count is : $COUNT"
+
+FRUITES=("Apple" "Banana" "Mango" "Grapes")
+echo "Fruites are : ${FRUITES[@]}"
