@@ -8,3 +8,7 @@ echo "Running User is : $USER"
 echo "Current working directory is : $PWD"
 echo "Home directory of the user is : $HOME"
 echo "Current process ID is : $$"
+sleep 5
+echo "Current process ID is : $$"
+wait $! 
+echo "Current process ID is : $$"
