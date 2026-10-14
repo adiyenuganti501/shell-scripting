@@ -10,5 +10,6 @@ echo "Home directory of the user is : $HOME"
 echo "Current process ID is : $$"
 sleep 5
 echo "Current process ID is : $$"
-wait $! 
-echo "Current process ID is : $$"
+echo "Line number: $LINENO"
+echo "previous command exit status: $?"
+echo "Total time executed for this script: $SECONDS"
