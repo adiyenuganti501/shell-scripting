@@ -1,4 +1,5 @@
 #!/bin/bash
-var=10
+var1=10
 var2=20
-echo "$var+$var2"
+echo "$var1+$var2"
+echo "Sum is $((var1+var2))"
