@@ -5,10 +5,11 @@ if [ $user_id -ne 0 ]; then
      echo "You are not a root user. Please run the script as root user."
      exit 1
 fi
-dnf install -y nginx
+dnf install -y nginxvcbncbnc
 
 if [ $? -ne 0 ]; then
    echo "Nginx installation failed. Please check the error and try again."
+   exit 1
 else
    echo "Nginx installation completed successfully."
 fi
@@ -17,6 +18,7 @@ dnf install mysql -y
 
 if [$? -ne 0 ]; then
     echo "MySQL installation failed. Please check the error and try again."
+    exit 1
 else
     echo "MySQL installation completed successfully."
 fi
