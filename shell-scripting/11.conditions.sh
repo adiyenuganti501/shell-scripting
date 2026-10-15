@@ -7,7 +7,7 @@ if [ $user_id -ne 0 ]; then
 fi
 dnf install -y nginx
 
-if [ $? -ge 0 ]; then
+if [ $? -ne 0 ]; then
    echo "Nginx installation failed. Please check the error and try again."
 else
    echo "Nginx installation completed successfully."
