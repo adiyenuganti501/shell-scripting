@@ -12,3 +12,11 @@ if [ $? -ne 0 ]; then
 else
    echo "Nginx installation completed successfully."
 fi
+
+dnf install mysql -y
+
+if [$? -ne 0 ]; then
+    echo "MySQL installation failed. Please check the error and try again."
+else
+    echo "MySQL installation completed successfully."
+fi
