@@ -20,3 +20,6 @@ validation $? "Nginx"
 
 dnf install mysql -y
 validation $? "MySQL"
+
+dnf install docker -y
+validation $? "Docker"
