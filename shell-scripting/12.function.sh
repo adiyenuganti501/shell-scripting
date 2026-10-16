@@ -16,4 +16,4 @@ validation() {
 }
 echo "Installing Nginx..."
 dnf install -y nginx
-validation $? nginx
+validation $? "Nginx"
