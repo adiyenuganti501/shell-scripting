@@ -21,3 +21,6 @@ validation(){
 }
 dnf install -y nginx | tee -a $logs_file
 validation $? "Nginx"
+
+dnf install mysql -y  &>> $logs_file
+validation $? "MySQL" 
