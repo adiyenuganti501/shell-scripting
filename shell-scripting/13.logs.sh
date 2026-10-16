@@ -9,13 +9,13 @@ if [ $user_id -ne 0 ] ; then
 fi
 
 mkdir -p "$logs_folder"  #Creates the logs folder if it does not exist
-echo "Script execution starts at $(date +"%F %T")" >> $logs_file  #Prints the start time of the script execution in the logs file
+echo "Script execution starts at $(date +"%F %T")" | tee -a $logs_file  #Prints the start time of the script execution in the logs file
 
 validation(){
     if [ $1 -ne 0 ] ; then
-        echo "$2 Installation Failed. Please check the error and try again." >> $logs_file
+        echo "$2 Installation Failed. Please check the error and try again." | tee -a $logs_file
         exit 1
     else
-        echo "$2 Installation completed successfully." >> $logs_file
+        echo "$2 Installation completed successfully."  | tee -a $logs_file
     fi
 }
