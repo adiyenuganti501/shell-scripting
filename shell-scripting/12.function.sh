@@ -14,7 +14,7 @@ validation() {
         echo "$2 Installation completed successfully."
     fi
 }
-echo "Installing Nginx..."
+
 dnf install -y nginx
 validation $? "Nginx"
 
