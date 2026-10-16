@@ -17,3 +17,6 @@ validation() {
 echo "Installing Nginx..."
 dnf install -y nginx
 validation $? "Nginx"
+
+dnf install mysql -y
+validation $? "MySQL"
