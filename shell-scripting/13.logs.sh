@@ -19,3 +19,5 @@ validation(){
         echo "$2 Installation completed successfully."  | tee -a $logs_file
     fi
 }
+dnf install -y nginx | tee -a $logs_file
+validation $? "Nginx"
