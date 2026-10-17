@@ -21,7 +21,8 @@ validation(){
     fi
 }
 
-dnf install -y nginx 
+dnf install -y mysql | &>> $logs_file
 
 validation $? "mysql" 
+
 echo "Script execution ends at $(date +"%F %T")" | &>> $logs_file
