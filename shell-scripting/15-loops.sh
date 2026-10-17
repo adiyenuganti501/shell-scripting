@@ -2,7 +2,8 @@
 user_id=$(id -u)
 logs_folder="/var/logs/shell_logs"
 logs_file="$logs_folder/${0}.log"
-if [$user_id -ne 0 ] ; then 
+
+if [ $user_id -ne 0 ] ; then 
     echo "You are not a root user. Please run the script as root user."
     exit 1
 fi
@@ -13,7 +14,7 @@ echo "Script execution starts at $(date +"%F %T")" | &>> $logs_file
 
 validation(){
 
-    if [$1 - ne 0 ]; then
+    if [ $1 -ne 0 ]; then
       echo "$2 Installation Failed. Please check the error and try again." | &>> $logs_file
       exit 1
     else
