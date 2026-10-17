@@ -9,17 +9,17 @@ fi
 
 mkdir -p "$logs_folder"
 
-echo "Script execution starts at $(date +"%F %T")" | & >> $logs_file
+echo "Script execution starts at $(date +"%F %T")" | &>> $logs_file
 
 validation(){
     if [$1 - ne 0 ]; then
-      echo "$2 Installation Failed. Please check the error and try again." | & >> $logs_file
+      echo "$2 Installation Failed. Please check the error and try again." | &>> $logs_file
       exit 1
     else
-       echo "$2 Installation completed successfully."  | & >> $logs_file
+       echo "$2 Installation completed successfully."  | &>> $logs_file
 }
 
 dnf install -y nginx 
 
 validation $? "mysql" 
-echo "Script execution ends at $(date +"%F %T")" | & >> $logs_file
+echo "Script execution ends at $(date +"%F %T")" | &>> $logs_file
