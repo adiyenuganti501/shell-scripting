@@ -24,3 +24,5 @@ validation $? "Nginx"
 
 dnf install mysql -y  &>> $logs_file
 validation $? "MySQL" 
+
+echo "Script exection ends at $(date +"%F %T")" | tee -a $logs_file  #Prints the end time of the script execution in the logs file
