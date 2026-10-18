@@ -23,7 +23,11 @@ validation(){
 }
 
 dnf install -y mysql | &>> $logs_file
+validation $? "mysql"
 
-validation $? "mysql" 
+dnf install -y mysql-server | &>> $logs_file
+validation $? "mysql-server"
+
+
 
 echo "Script execution ends at $(date +"%F %T")" | &>> $logs_file
