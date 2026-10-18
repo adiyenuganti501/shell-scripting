@@ -1,4 +1,4 @@
-```bash
+
 #!/bin/bash
 
 # Get the current user ID
@@ -55,4 +55,4 @@ done
 
 # Log script completion time
 echo "Script execution completed at $(date '+%F %T')" | tee -a "$log_file"
-```
+
