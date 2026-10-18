@@ -10,7 +10,7 @@ fi
 
 mkdir -p "$logs_folder"
 
-echo "Script execution starts at $(date +"%F %T")" | &>> $logs_file
+echo "Script execution starts at $(date +"%F %T")" | tee -a $logs_file
 
 validation(){
 
@@ -30,4 +30,4 @@ validation $? "mysql-server"
 
 
 
-echo "Script execution ends at $(date +"%F %T")" | &>> $logs_file
+echo "Script execution ends at $(date +"%F %T")" |  tee -a $logs_file
