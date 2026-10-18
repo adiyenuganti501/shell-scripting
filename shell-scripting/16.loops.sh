@@ -18,6 +18,7 @@ validation(){
         exit 1
     else
         echo "$2 Installation completed successfully."  | tee -a $log_file
+    fi
 }
 
 for package in $@
