@@ -1,34 +1,58 @@
+```bash
 #!/bin/bash
-user_id= $(id -u)  #Prints the user id of the current user
 
-log_folder="/var/logs/shell_logs"
-log_file="$log_folder/${0}.log"  #${0} is the name of the script file
+# Get the current user ID
+user_id=$(id -u)
 
-if [ $user_id -ne 0 ] ; then
-    echo "You are not a root user. Please run the script as root user."
+# Define log directory and file
+log_folder="/var/log/shell_logs"
+script_name=$(basename "$0")
+log_file="$log_folder/${script_name}.log"
+
+# Check whether the user is root
+if [ "$user_id" -ne 0 ]; then
+    echo "You are not a root user. Please run the script as root."
     exit 1
 fi
 
-mkdir -p $log_folder  #Creates the logs folder if it does not exist
-echo "Script execution starts at $(date +"%F %T")" | tee -a $log_file  #Prints the start time of the script execution in the logs file
+# Check whether package arguments are provided
+if [ "$#" -eq 0 ]; then
+    echo "Usage: $0 <package1> <package2> ..."
+    exit 1
+fi
 
-validation(){
-    if [ $1 -ne 0 ] ; then
-        echo "$2 Installation Failed. Please check the error and try again" | tee -a $log_file
+# Create the log directory
+mkdir -p "$log_folder"
+
+# Log script start time
+echo "Script execution started at $(date '+%F %T')" | tee -a "$log_file"
+
+# Function to validate installation
+validation() {
+    if [ "$1" -ne 0 ]; then
+        echo "$2 installation failed. Please check the log file." | tee -a "$log_file"
         exit 1
     else
-        echo "$2 Installation completed successfully."  | tee -a $log_file
+        echo "$2 installation completed successfully." | tee -a "$log_file"
     fi
 }
 
-for package in $@
-do
-    dnf list installed $package &>> $log_file
-     if [ $? -ne 0 ] ; then
-        echo "$package is not installed. Installing...." | tee -a $log_file
-        dnf install -y $package &>> $log_file
-        validation $? "$package"
+# Check and install packages
+for package in "$@"; do
+
+    if rpm -q "$package" &>/dev/null; then
+        echo "$package is already installed." | tee -a "$log_file"
+
     else
-        echo "$package is already installed."  | tee -a $log_file
+        echo "$package is not installed. Installing..." | tee -a "$log_file"
+
+        dnf install -y "$package" &>> "$log_file"
+
+        validation "$?" "$package"
     fi
+
 done
+
+# Log script completion time
+echo "Script execution completed at $(date '+%F %T')" | tee -a "$log_file"
+```
