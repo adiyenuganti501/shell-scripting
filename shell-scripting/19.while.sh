@@ -2,5 +2,5 @@
 
 while IFS= read -r line
 do
- echo $
+ #echo $line
 done < 03.var.sh 
