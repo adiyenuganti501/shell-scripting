@@ -15,7 +15,3 @@
 # Display the instance details.
 # Stop the script.
 
-#configuration
-REGION="us-east-1"  # Specify the AWS region
-INSTANCE_TYPE="t2.micro"  # Specify the instance type
- 
