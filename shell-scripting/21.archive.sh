@@ -34,3 +34,21 @@ if [ -z "files_to_archive" ] ; then
  echo "No files to Archive in last $days days"
  exit 0
 fi
+
+timestamp=$(date +%Y-%m-%d-%H-%M-%S)
+
+file_name=$dest_dir/logs-$timestamp.tar.gz
+
+tar -czf $file_name $files_to_archive
+
+if [ $? -ne 0 ]; then 
+  echo "Archivle failed
+  exit 1
+else 
+  while IFS= -r line 
+  do
+  echo "File is going to be deleted: $line"
+  rm -f $line
+  echo "File deleted: $line"
+  
+  done <<< "$files_to_archive"
