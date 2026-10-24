@@ -16,7 +16,7 @@ usage(){
 
 if [ -z "$source_dir" ] ; then 
   echo "ERROR Missing parametores"
-  usage()
+  usage
 fi
 
 if [ ! -d "$source_dir" ] ; then
