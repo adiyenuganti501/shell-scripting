@@ -9,7 +9,7 @@ if [ "$user_id" -ne 0 ] ; then
    exit 1
 fi
 usage(){
-    echo"Usage :: $0 [SOURCE_DIR] [DESTIATION_DIR] [DAYS(optional, default 14 days)]"
+    echo "Usage :: $0 [SOURCE_DIR] [DESTIATION_DIR] [DAYS(optional, default 14 days)]"
     exit 1
 }
 if [ -z "$source_dir" ] || [ -z "$dest_dir" ]; then
