@@ -42,7 +42,7 @@ file_name=$dest_dir/logs-$timestamp.tar.gz
 tar -czf $file_name $files_to_archive
 
 if [ $? -ne 0 ]; then 
-  echo "Archivle failed
+  echo "Archivle failed"
   exit 1
 else 
   while IFS= -r line 
