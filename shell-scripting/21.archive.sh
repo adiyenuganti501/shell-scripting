@@ -26,3 +26,11 @@ if [ ! -d "$dest_dir" ]; then
    echo "Destination directory :$dest_dir is missing"
    exit 1
 fi
+
+echo "Scanning for the files which are older than $days in $source_dir"
+files_to_archive=$(find $source_dir -type f -name "*.log" -mtime +$days)
+
+if [ -z "files_to_archive" ] ; then
+ echo "No files to Archive:
+ exit 0
+fi
