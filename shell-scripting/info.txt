@@ -1,0 +1,11 @@
+1. Crontab
+ is a Linux utility used to schedule jobs to run automatically at specific times.
+2. We schedule jobs like backups, log cleanup, monitoring, and maintenance tasks.
+3. Jobs are often scheduled during low-traffic periods to minimize performance impact.
+4. `crontab -e` – Edit and schedule cron jobs.
+5. `crontab -l` – List the current user's scheduled cron jobs.
+6. `crontab -r` – Remove all cron jobs for the current user.
+7. Cron syntax: `MIN HOUR DAY MONTH DAY_OF_WEEK COMMAND`.
+8. `0 2 * * * /path/backup.sh` – Run a backup script daily at 2:00 AM.
+9. `sudo tail -f /var/log/cron` – Monitor cron logs on Amazon Linux and many RHEL-based systems.
+10. `*/5 * * * * /path/script.sh` – Execute a script every five minutes.
