@@ -50,5 +50,6 @@ else
   echo "File is going to be deleted: $line"
   rm -f $line
   echo "File deleted: $line"
-  
+
   done <<< "$files_to_archive"
+fi
