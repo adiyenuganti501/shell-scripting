@@ -33,6 +33,8 @@ fi
 while IFS= read -r line
 do
  echo "these files will be deleted :$line"
+ rm -f $line
+ echo "File deleted :$line"
 done <<< "$files_to_delete"
 
 # < --> file as input 
