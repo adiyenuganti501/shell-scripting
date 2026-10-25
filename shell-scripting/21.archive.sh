@@ -44,8 +44,9 @@ tar -czf $file_name $files_to_archive
 if [ $? -ne 0 ]; then 
   echo "Archivle failed"
   exit 1
-else 
-  while IFS= -r line 
+else  
+  echo "Logs are archived: $file_name"
+  while IFS= read -r line 
   do
   echo "File is going to be deleted: $line"
   rm -f $line
